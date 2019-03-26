@@ -4,6 +4,7 @@
         <div class="container">
             <h4><b>{{ award.title }}</b></h4> 
             <p>{{ award.detail }}</p> 
+            <button v-on:click="hideCard">Hide</button>
         </div>
     </li>
 </template>
@@ -15,7 +16,12 @@ export default {
                 type: Object,
                 required: true
             }
-        }
+        },
+        methods: {
+          hideCard: function() {
+            this.$emit('hide', this.award.id);
+          }
+        },
 };
 </script>
 
